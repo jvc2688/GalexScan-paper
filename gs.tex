@@ -16,5 +16,45 @@
 \section{Sky Map Construction}
 
 \section{Source Extraction}
+Once the images were constructed, we used SExtractor (\cite{sextractor}) to detect sources and measure their positions and fluxes (using the FLUX\_AUTO parameter). We used a modified version of the default input SExtractor configuration with the goal of minimizing false detections at the edges of the images. We found that the background subtraction step in SExtractor introduced an artificial level of noise from the image edges. To avoid this issue altogether we cut the image into a subsection that removed the outer scan edges and then ran SExtractor. We then converted the fluxes to GALEX NUV AB magnitudes using NUV = -2.5 * log10(FLUX) + 20.08.
+
+The scan data had overlaps of about .25 degrees on each side, producing duplicates in the SExtractor output. To deal with this issue we looked at the overlapping regions and compared their coordinates between scans and flagged any matches. Finally, we only used SExtractor data from the sources that had the highest signal to noise.
+
+To test the accuracy of our NUV measurements, we compared our measurements with the GALEX All Sky Imaging Survey which included regions in the Galactic plane. We gathered 16,851,560 objects within the same limits as the GALEX Plane Survey (360\deg x 20\deg from abs(gb) $<$ 10). The magnitudes agree very well from 14 $<$ m$_{NUV}$ $<$ 18. 
+
+\begin{table}
+\begin{tabular}{cc}
+DETECT_TYPE & CCD \\
+DETECT_IMAGE & SAME \\
+FLAG_IMAGE & flag.fits \\
+DETECT_MINAREA & 8 \\
+DETECT_THRESH & 2.5 \\
+ANALYSIS_THRESH & 2 \\
+FILTER & Y \\
+FILTER_NAME & default.conv \\
+DEBLEND_NTHRESH & 32 \\
+DEBLEND_MINCONT & 0.005 \\
+CLEAN & Y \\
+CLEAN_PARAM & 1.0 \\
+BLANK & Y \\
+PHOT_APERTURES & 10 \\
+PHOT_AUTOPARAMS & 2.5, & 3.5 \\
+SATUR_LEVEL & 50000.0 \\
+MAG_ZEROPOINT & 0.0 \\
+MAG_GAMMA & 4.0 \\
+GAIN & 100.0 \\
+PIXEL_SCALE & 7.2 \\
+BACK_SIZE & 64 \\
+BACK_FILTERSIZE & 3 \\
+BACKPHOTO_TYPE & GLOBAL \\
+BACKPHOTO_THICK & 24 \\
+CHECKIMAGE_TYPE & BACKGROUND \\
+MEMORY_OBJSTACK & 2000 \\
+MEMORY_PIXSTACK & 100000 \\
+MEMORY_BUFSIZE & 512 \\
+SCAN_ISOAPRATIO & 0.6 \\
+VERBOSE_TYPE & NORMAL \\
+\end{tabular}
+\end{table}
 
 \end{document}
