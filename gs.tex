@@ -13,6 +13,7 @@
 \newcommand{\gphoton}{\project{gPhoton}}
 \newcommand{\todo}[1]{\textbf{#1}}
 
+\bibliographystyle{apj}
 \definecolor{linkcolor}{rgb}{0,0,0.5}
 \hypersetup{colorlinks=true,linkcolor=linkcolor,citecolor=linkcolor,
             filecolor=linkcolor,urlcolor=linkcolor}
@@ -23,13 +24,13 @@
 \author{}
 
 \section{Description of Data}
-The Galaxy Evolution Explorer (\galex, \todo{citation}) is a space-based telescope investigating the causes and evolution of star formation in galaxies in UV band.
+The Galaxy Evolution Explorer (\galex, \citealt{galex}) is a space-based telescope investigating the causes and evolution of star formation in galaxies in UV band.
 
 After the original \galex\ was finished, the mission was extend to the \cause\ phase, in which the telescope was operated in a mode know as \scanmode.
 In contrast to the traditional boresight dither, the telescope traverses around the galactic plane rapidly. 
 The \scanmode\ enables the team to  complete the All-Sky UV Survey in a short time and avoid saturation caused by the high stellar density in the survey region.
 
-Data used in this project are the raw photon data(-raw6.fits), the refined attitude solution (-asprta.fits), and the spacecraft state file (-scst.fits). This project also heavily depend on the photon list produced by \gphoton\ \todo{citation}, in which each photon event is tagged with position  and time.
+Data used in this project are the raw photon data(-raw6.fits), the refined attitude solution (-asprta.fits), and the spacecraft state file (-scst.fits). This project also heavily depend on the photon list produced by \gphoton (\url{https://github.com/cmillion/gPhoton}), in which each photon event is tagged with position  and time.
 
 \section{Calibration}
 
@@ -120,5 +121,9 @@ SCAN\_ISOAPRATIO & 0.6 \\
 VERBOSE\_TYPE & NORMAL \\
 \end{tabular}
 \end{table}
+
+\clearpage
+\bibliography{gs}
+\clearpage
 
 \end{document}
