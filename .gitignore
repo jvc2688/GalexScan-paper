@@ -1,0 +1,13 @@
+.DS_Store
+*.pyc
+*~
+*.aux
+*.log
+*.c
+*.pkl
+*.out
+*.bbl
+*.blg
+TSWLatexianTemp*
+*.ps
+*eps-converted-to.pdf
