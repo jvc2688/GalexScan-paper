@@ -30,15 +30,23 @@ After the original \galex\ was finished, the mission was extend to the \cause\ p
 In contrast to the traditional boresight dither, the telescope traverses around the galactic plane rapidly. 
 The \scanmode\ enables the team to  complete the All-Sky UV Survey in a short time and avoid saturation caused by the high stellar density in the survey region.
 
-Data used in this project are the raw photon data(-raw6.fits), the refined attitude solution (-asprta.fits), and the spacecraft state file (-scst.fits). This project also heavily depend on the photon list produced by \gphoton (\url{https://github.com/cmillion/gPhoton}), in which each photon event is tagged with position  and time.
+Data used in this project are the raw photon data(-raw6.fits), the refined attitude solution (-asprta.fits), and the spacecraft state file (-scst.fits). 
+This project also heavily depend on the photon list produced by \gphoton (\url{https://github.com/cmillion/gPhoton}), in which each photon event is tagged with position and time.
 
 \section{Calibration}
 
 \subsection{Freedom of the telescope}
-
+The telescope is considered to have three dimensions of freedom. 
+That is, the pointing of the telescope moves in a two-dimensional space (Ra, Dec), while the detector can also rotate itself. 
+Therefore to successfully calibrate the photons from the \scanmode\ data, we need to figure out the offset of the pointing and the rotation.
 
 \subsection{Cross-correlation of photons and star catalog}
 To characterize the offsets of the pointing and the rotation correction of the detector, the cross-correlation of photons and star catalog are calculated. 
+As shown in Fig.~\ref{slice}, in each second, the offsets of the pointing are determined by the centroid of the cross-correlation of photons and stars. 
+To measure the centroid, a gaussian matched filter are applied.
+We found that most of the systematics in the \scanmode\ data come from the offset of the pointing, while the rotation only contributes a little.
+Therefore in this project, the rotation correction are chosen from a set of possible values. 
+In practice, the photons were rotated with a set of possible rotation angles. With the rotated photons, the offset of the pointing was measured by the cross-correlation. After that, the peaks of the matched filtered cross-correlation function are compared to determine the best set of the rotation correction and the offset of the pointing.
 
 \begin{figure}[p]
 \begin{center}
