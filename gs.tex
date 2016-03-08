@@ -48,6 +48,8 @@ To characterize the offsets of the pointing and the rotation correction of the d
 \caption{%
   \label{slice}
   Cross-correlation of photons and star catalog.
+  \emph{Top:}  An one second snapshot of the photons on the sky. The black points are the location of the photons. The red crosses indicate the location of the stars from the input catalog. It is quite obvious that there is a small offset between photons and the stars.
+  \emph{Bottom:} The cross-correlation of photons and stars. Each black points in the plot shows a pair of photon and star that have a certain displacement. The red cross indicates the centroid of the cross-correlation fucntion, which is the overall offsets between photons and stars---the offset of the pointing.
   }
 \end{figure}
 
@@ -77,6 +79,12 @@ After the count map and exposure map are constructed, the intensity map is defin
 \end{center}
 \caption{%
   \label{map}
+  Example images of \galex\ \scanmode\ data.
+  The top panel is the count map of the region($288.79\ deg<gl<290.50\ deg, 7.74\ deg<gb<8.43\ deg$). 
+  The image grows faint in both edges, since the exposure time is lower on the edges.
+  The middle panel shows the exposure map in the same reigon of the count map from the top panel.
+  The bottom panel is the intensity map calculated from the top two images. 
+  It clearly shows correction of the exposure especially on the edges.
   }
 \end{figure}
 
