@@ -20,16 +20,21 @@
 
 \begin{document}
 
-\title{\galex\ \scanmode\ Data}
+\title{\galex\ \scanmode\ calibration}
 \author{}
 
+\begin{abstract}
+The Galaxy Evolution Explorer (\galex, \citealt{galex}) is a space-based survey investigating the causes and evolution of star formation in galaxies in UV band.
+After the original \galex\ was finished, the mission was extend to the \cause\ phase, in which the telescope was operated in a mode known as \scanmode.
+In contrast to the original boresight dither, the telescope traverses around the galactic plane rapidly. 
+The \scanmode\ enables the team to complete the All-Sky UV Survey in a short time and avoid saturation caused by the high stellar density in the survey region.
+This data set is unique, since a significant fraction of the Galactic Plane has not yet been surveyed.
+However, due to the very different scenario, the original pipeline is not able to produce high quality data products. 
+In this paper, we construct a new pipeline to calibrate the pointing, exposure time and flat-field of the \scanmode\  data and are able to generate high-quality sky maps in near UV (175-275 nm) band around the galactic plane.
+
+\end{abstract}
+
 \section{Description of Data}
-The Galaxy Evolution Explorer (\galex, \citealt{galex}) is a space-based telescope investigating the causes and evolution of star formation in galaxies in UV band.
-
-After the original \galex\ was finished, the mission was extend to the \cause\ phase, in which the telescope was operated in a mode know as \scanmode.
-In contrast to the traditional boresight dither, the telescope traverses around the galactic plane rapidly. 
-The \scanmode\ enables the team to  complete the All-Sky UV Survey in a short time and avoid saturation caused by the high stellar density in the survey region.
-
 Data used in this project are the raw photon data(-raw6.fits), the refined attitude solution (-asprta.fits), and the spacecraft state file (-scst.fits). 
 This project also heavily depend on the photon list produced by \gphoton (\url{https://github.com/cmillion/gPhoton}), in which each photon event is tagged with position and time.
 
